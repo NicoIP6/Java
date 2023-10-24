@@ -38,7 +38,6 @@ public class Program {
         // Gestions des grilles Attaques et Bateaux par joueur
         var grillesJoueur1 = new char[2][100];
         var grillesJoueur2 = new char[2][100];
-
 /*
         // Remplissage de la grille d'attaque avec des '.'
         for (var x = 0 ; x < grilleAttaque.length; x++ ) {
@@ -72,11 +71,12 @@ public class Program {
             setBoats(grillesJoueur2[GRILLE_BATEAUX], bateau);
         }
         displayGrids(grillesJoueur1, grillesJoueur2);
+
 /*
         System.out.println("\nGrille des bateaux");
         displayGrid(grilleBateaux);
  */
-        int joueur_1 = 0;
+       /*int joueur_1 = 0;
         int jouoeur_2 = 1;
         int choix_joueur = rand.nextInt(2);
         System.out.println(choix_joueur);
@@ -90,6 +90,6 @@ public class Program {
                 attaque1(grillesJoueur1, grillesJoueur2, J1_Points);
             }
 
-        }
+        }*/
     }
 }

@@ -186,5 +186,37 @@ public class Function {
         }
         System.out.println();
     }
+    /**
+     * Cette fonction vérifie que si le caractère en poition 'coup' != '~' ou pas.
+     * Si c'est le cas, le joueur opposé à un point en plus jusque 17.
+     * On calcule le nombre de tirage de numéro (nbrTour)
+     * On stocke les numéros tirés dans un tableau dynamique (nbrJoue)
+     *
+     * @param grille1: positions des caractères de la grille1
+     * @param grille2: positions des caractères de la grille2
+     * @param J_Points : nbr de points du joueur qui attaque.
+     */
+    static void start(char[][] grille1, char[][] grille2, int J_Points) {
+        var nbrTour = 0;
+        var nbrJoue = new int[1];// je crée un tableau de 1 case
+        while (J_Points <= 17) {
+            var coup = lanceDe();//donne un chiffre aléatoire entre 0 et 99
+            nbrJoue[nbrJoue.length - 1] = coup;// on insère la valeur coup à la dernière case du tableau
+            if (grille1[GRILLE_BATEAUX][coup] == BATEAU){
+                grille2[GRILLE_ATTAQUES][coup] = TOUCHE;
+                System.out.println("Touché. Vous avez " + J_Points + " points.");
+                J_Points++;
+            } else {
+                grille2[GRILLE_ATTAQUES][coup] = RATE;
+                System.out.println("Raté");
+            }
+            nbrJoue = Arrays.copyOf(nbrJoue, nbrJoue.length + 1);// permets a chaque tour de rajouter
+            //une case au tableau nbrJoue
+            nbrTour += 1;
+        }
+        System.out.println("Nombre de tour = " + nbrTour);
+        Arrays.sort(nbrJoue);
+        System.out.println(Arrays.toString(nbrJoue));//On lit les valeurs du tableau
+    }
 }
 
